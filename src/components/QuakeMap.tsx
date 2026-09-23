@@ -27,9 +27,8 @@ export default function QuakeMap({
     if (!el.current || map.current) return;
     const m = L.map(el.current, { zoomControl: false, worldCopyJump: true }).setView([20, 0], 2);
     L.control.zoom({ position: "bottomright" }).addTo(m);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
-      subdomains: "abcd",
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors",
       maxZoom: 19,
     }).addTo(m);
     layer.current = L.layerGroup().addTo(m);
