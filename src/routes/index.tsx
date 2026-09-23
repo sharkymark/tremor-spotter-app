@@ -96,7 +96,7 @@ function Index() {
   const [, tick] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => tick((x) => x + 1), 30_000);
+    const t = setInterval(() => tick((x) => x + 1), 15 * 60_000);
     return () => clearInterval(t);
   }, []);
 
