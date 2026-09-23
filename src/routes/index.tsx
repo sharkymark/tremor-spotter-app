@@ -31,7 +31,7 @@ const quakesQuery = (minMag: MinMag, period: Period) =>
   });
 
 export const Route = createFileRoute("/")({
-  validateSearch: (s) => searchSchema.parse(s),
+  validateSearch: (s: { mag?: MinMag; period?: Period }) => searchSchema.parse(s),
   head: () => ({
     meta: [
       { title: "Quakewatch — Live Earthquake Map" },
