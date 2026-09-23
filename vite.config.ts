@@ -12,4 +12,15 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    plugins: [
+      {
+        // Disable the live-reload socket: the preview proxy drops it, causing a reload loop.
+        name: "disable-hmr",
+        configResolved(conf: any) {
+          conf.server.hmr = false;
+        },
+      },
+    ],
+  },
 });
