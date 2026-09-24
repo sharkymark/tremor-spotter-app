@@ -8,7 +8,7 @@ const PERIOD_MS = { "24h": 86400_000, "48h": 172800_000, "7d": 604800_000 } as c
 const cache = new Map<string, { at: number; value: QuakeResult }>();
 
 export const getEarthquakes = createServerFn({ method: "GET" })
-  .inputValidator((d) =>
+  .validator((d) =>
     z
       .object({
         minMag: z.enum(["all", "5", "6", "7"]),
